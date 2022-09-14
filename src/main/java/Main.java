@@ -11,7 +11,7 @@ public class Main {
 
         String [] enemies = {"Skeleton", "Zombie", "Warrior", "Assassin"};
         int maxEnemyHealth = 75;
-        int enemyAttackDamaage = 25;
+        int enemyAttackDamage = 25;
 
         //Player variables
         int health = 100;
@@ -22,7 +22,7 @@ public class Main {
 
         boolean running = true;
 
-        System.out.println("Welcome to the Dungeon! We go fun and games!");
+        System.out.println("Welcome to the Dungeon! We got fun and games!");
 
         GAME:// name of while loop
         while(running) {
