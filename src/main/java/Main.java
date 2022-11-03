@@ -30,7 +30,7 @@ public class Main {
 
             int enemyHealth = rand.nextInt(maxEnemyHealth);
             String enemy = enemies[rand.nextInt(enemies.length)];// accessing the array
-            System.out.println("\t# " + enemy + "has appeared! $\n");// /n is like a line break to move to the next line
+            System.out.println("\t# " + enemy + " has appeared! $\n");// /n is like a line break to move to the next line
 
             while(enemyHealth > 0) {
                 System.out.println("\tYour HP: " + health);// /t is tab
@@ -39,7 +39,64 @@ public class Main {
                 System.out.println("\t1. Attack");
                 System.out.println("\t2. Drink health potion");
                 System.out.println("\t3. Run!");
+
+                String input = in.nextLine();
+                if(input.equals("1")) {
+                    int damageDealt = rand.nextInt(attackDamage);
+                    int damageTaken = rand.nextInt(enemyAttackDamage);
+
+                    enemyHealth -= damageDealt;
+                    health -= damageTaken;
+
+                    System.out.println("\t> You strike the " + enemy + "for " + damageDealt + "damage.");
+                    System.out.println("\t> You receive " + damageTaken + "in retaliation!");
+
+                    if (health < 1) {
+                        System.out.println("\t> You have Fallen in Battle!");
+                        break;
+                    }
+
+
+                }else if(input.equals("2")) {
+                    if(numHealthPotions > 0) {
+                        health += healthPotionHealAmount;
+                        numHealthPotions--;
+                        System.out.println("\t> You drink a health potion, you healed for " + healthPotionHealAmount + "." +"\n\t> You now have " + health + "HP"
+                        + "\n\t> You have " + numHealthPotions + " health potions left.\n");
+                    }
+                    else {
+                        System.out.println("\t> You have no health potions left! ");
+                    }
+
+                }
+                else if(input.equals("3")) {
+
+                    System.out.println("\t You run away from the " + enemy + "!");
+                    continue GAME;
+
+                }
+                else {
+                    System.out.println("\t Invalid command!");
+                }
             }
+            if(health < 1) {
+                System.out.println("You limp out of the dungeon, weak from battle.");
+                break;
+            }
+            System.out.println("-------------------------------");
+            System.out.println(" # " + enemy + " was defeated! #");
+            System.out.println(" # You have " + health + "HP left. #");
+            if(rand.nextInt(100) < healthPotionDropChancePercentage) {
+                numHealthPotions++;
+                System.out.println(" # The " + enemy + " dropped a health potion! #");
+                System.out.println(" # You now have " + numHealthPotions + " health potions(s). # ");
+            }
+            System.out.println("-------------------------------");
+            System.out.println("What would you like to do now?");
+            System.out.println("1. Continue");
+            System.out.println("2. Exit dungeon");
+
+            //update
         }
     }
 
