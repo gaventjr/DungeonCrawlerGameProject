@@ -103,7 +103,7 @@ public class Main {
             }
             // If user defeated enemies
             if(input.equals("1")) {
-                System.out.println("You continue on your adventure!");
+                System.out.println("You continue foward on your adventure!");
             }
             else if(input.equals("2")) {
                 System.out.println("You exit the dungeon, til another day of adventuring!");
@@ -111,6 +111,6 @@ public class Main {
             }
         }
 
-        System.out.println("THANKS FOR PLAYING!");
+        System.out.println("THANKS FOR PLAYING!");1
     }
 }
